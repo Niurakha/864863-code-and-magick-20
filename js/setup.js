@@ -33,11 +33,14 @@ var WIZARD_EYES = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var NUMBER_OF_WIZARDS = 4;
 
-var userDialog = document.querySelector('.setup');
-userDialog.classList.remove('hidden');
 
-var similarListElement = userDialog.querySelector('.setup-similar-list');
+var showUserDialog = function () {
+  var userDialog = document.querySelector('.setup');
+  userDialog.classList.remove('hidden');
+  userDialog.querySelector('.setup-similar').classList.remove('hidden');
+};
 
+var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
   .content
   .querySelector('.setup-similar-item');
@@ -78,6 +81,9 @@ var createDom = function (wizards) {
   }
   similarListElement.appendChild(fragment);
 };
+
+
+showUserDialog();
 createDom();
 
-document.querySelector('.setup-similar').classList.remove('hidden');
+
